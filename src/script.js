@@ -3,7 +3,9 @@ $(document).ready(function () {
     $("#update_product").hide();
     $(".success").hide();
     $(".error").hide();
-    $("#add_product").click(function () {
+   
+    
+    $("#add_product,#update_product").click(function () {
         let obj = {};
         obj.id = $("#product_sku").val();
         obj.name = $("#product_name").val();
@@ -22,12 +24,15 @@ $(document).ready(function () {
         $(".success").show();
         disp(prodData);
     })
-    $(document).on('click','#add_product',function(){
-        $("#add_product").val("Add Product");
+    $(document).on('click','#update_product',function(){
+        $("#add_product").show();
+        $("#update_product").hide();
+
     })    
 $(document).on('click','.edit', function(){
-    $("#add_product").val("Upadte Product");
-    
+    $("#add_product").hide();
+    $("#update_product").show();
+
     var edit1 = $(this).parent("td").siblings("#id").html();
     $("#product_id").val($(this).val.parent("td").siblings("#id").html());
     $("#product_name").val($(this).val.parent("td").siblings("#name").html());
